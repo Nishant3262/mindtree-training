@@ -61,6 +61,41 @@ public class TestAssignment {
 		return student;
 	}
 	
+	public void createData(Session session, String subjectName, String observerName, String skillName, int rank){
+		Student subject = saveStudent(session,subjectName);
+		Student observer = saveStudent(session,observerName);
+		Skill skill = saveSkill(session,skillName);
+		
+		Ranking ranking = new Ranking();
+		ranking.setSubject(subject);
+		ranking.setObserver(observer);
+		ranking.setSkill(skill);
+		ranking.setRating(rank);
+		
+		session.save(ranking);
+		
+	}
+	
+	public void changeRank(Session session, String subjectName, String observerName, String skillName, int newRating){
+		Query query = session.createQuery("from Ranking r "
+				+ "where r.subject.name=:subject and "
+				+ "r.observer.name=:observer and "
+				+ "r.skill.name=:skill");
+		query.setString("subject", subjectName);
+		query.setString("observer",observerName);
+		query.setString("skill", skillName);
+		
+		Ranking ranking = (Ranking) query.uniqueResult();
+		
+		if(ranking == null){
+			System.out.println("Invalid Change Request");
+		}
+		
+		ranking.setRating(newRating);
+		
+	    
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -69,22 +104,19 @@ public class TestAssignment {
 		
 		Session session = tp.factory.openSession();
 		Transaction tx = session.beginTransaction();
-		Student s1 = tp.saveStudent(session, "Awantik Das");
-		Student s2 = tp.saveStudent(session, "Jack Sparrow");
 		
-		Skill skill = tp.saveSkill(session, "Hibernate");
+		// Add ranks
+//		tp.createData(session, "Amit","Vijay","Python",5);
+//		tp.createData(session, "Ajit","Nilesh","Django",9);
+		//tp.createData(session, "Amway","Dash","Spring",8);
 		
-		Ranking ranking = new Ranking();
-		ranking.setSubject(s1);
-		ranking.setObserver(s2);
-		ranking.setSkill(skill);
-		ranking.setRating(7);
-		
-		session.save(ranking);
+		tp.changeRank(session, "Amway","Dash","Spring",12);
+		// Update rating assigned by Jack Sparrow to Awantik Das
 		
 		
-		tx.commit();
-		session.close();
+		
+		//tx.commit();
+		//session.close();
 
 	}
 
