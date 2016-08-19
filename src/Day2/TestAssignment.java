@@ -113,7 +113,12 @@ public class TestAssignment {
 		tp.changeRank(session, "Amway","Dash","Spring",12);
 		// Update rating assigned by Jack Sparrow to Awantik Das
 		
-		
+//		session.evict(arg0);
+//		session.load(arg0, arg1)
+//		session.refresh(arg0);
+//		session.merge(arg0)
+//		session.persist(arg0);
+//		session.save(arg0)
 		
 		//tx.commit();
 		//session.close();
