@@ -7,6 +7,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import Day3.Email;
+import Day3.Message;
 import Day3.TestCode;
 
 public class TestCompoundCode {
@@ -29,6 +31,14 @@ public class TestCompoundCode {
 		
 		Session session = tc.factory.openSession();
 		Transaction tx = session.beginTransaction();
+		
+		Customer customer = new Customer();
+        customer.name = "Jack";
+        
+		session.save(customer);
+		
+		tx.commit();
+		session.close();
 
 	}
 
