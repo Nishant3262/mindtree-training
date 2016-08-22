@@ -19,6 +19,8 @@ public class IdClassBook {
 	
 	@Id
 	int title;
+	
+	@Id
 	int checkdigit;
 	String name;
 
