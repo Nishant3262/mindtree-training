@@ -33,7 +33,8 @@ public class TestCompoundCode {
 		Transaction tx = session.beginTransaction();
 		
 		Customer customer = new Customer();
-        customer.name = "Jack";
+        customer.name = " Awesome Good";
+		customer.address = "Mumbai";
         
 		session.save(customer);
 		
