@@ -14,9 +14,6 @@
    <property name="show_sql">true</property>
    <property name="hbm2ddl.auto">create</property>
    <property name="hibernate.connection.autocommit">true</property>
-   <mapping class="Day3.SimpleObject"/>
-
-   
-
+   <mapping class="Day4.EmbeddedPKBook"/>
 </session-factory>
 </hibernate-configuration>

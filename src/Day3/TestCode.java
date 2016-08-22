@@ -9,7 +9,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 
 public class TestCode {
 
-    SessionFactory factory;
+    public SessionFactory factory;
 	
 	public void setup(){
 		Configuration configuration = new Configuration();
@@ -29,17 +29,7 @@ public class TestCode {
 		Session session = tc.factory.openSession();
 		Transaction tx = session.beginTransaction();
 		
-		
-		Email email = new Email("First Email");
-		Message mesg = new Message("First Message");
-		
-		//email.setMessage(mesg);
-		mesg.setEmail(email);
-		session.save(email);
-		session.save(mesg);
-		
-		tx.commit();
-		session.close();
+        
 		
 
 	}
