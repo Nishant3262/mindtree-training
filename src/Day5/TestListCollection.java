@@ -33,29 +33,45 @@ public class TestListCollection {
 		Session session = tc.factory.openSession();
 		Transaction tx = session.beginTransaction();
 		
-		List<Car> cars = new ArrayList<>(); 
-		cars.add(new Car("Ford","White"));
-		cars.add(new Car("Fiat","Yellow"));
-		cars.add(new Car("Maruti","Red"));
-		
-//		Showroom showroom = new Showroom();
-//		showroom.setCars(cars);
-		
-		CarParlour carparlour = new CarParlour();
-		carparlour.setCars(cars);
-		session.save(carparlour);
-		
-		List<Car> newcars = new ArrayList<>(); 
-		newcars.add(new Car("Ford","White"));
-		newcars.add(new Car("Fiat","Yellow"));
-		newcars.add(new Car("Maruti","Red"));
-		
-		CarParlour newcarparlour = new CarParlour();
-		newcarparlour.setCars(newcars);
-		
+//		List<Car> cars = new ArrayList<>(); 
+//		cars.add(new Car("Ford","White"));
+//		cars.add(new Car("Fiat","Yellow"));
+//		cars.add(new Car("Maruti","Red"));
+//		
+////		Showroom showroom = new Showroom();
+////		showroom.setCars(cars);
+//		
+//		CarParlour carparlour = new CarParlour();
+//		carparlour.setCars(cars);
+//		session.save(carparlour);
+//		
+//		List<Car> newcars = new ArrayList<>(); 
+//		newcars.add(new Car("Ford","White"));
+//		newcars.add(new Car("Fiat","Yellow"));
+//		newcars.add(new Car("Maruti","Red"));
+//		
+//		CarParlour newcarparlour = new CarParlour();
+//		newcarparlour.setCars(newcars);
+//		
 		//session.save(showroom);
 		
-		session.save(newcarparlour);
+		//session.save(newcarparlour);
+		
+		Meeting meeting1 = new Meeting("Discussion on Hibernate");
+		Meeting meeting2 = new Meeting("Discussion on Spring");
+		
+		Employee emp1 = new Employee("Awantik","Das");
+		Employee emp2 = new Employee("Awi","D");
+		
+		emp1.getMeetings().add(meeting1);
+		emp1.getMeetings().add(meeting2);
+		
+		emp2.getMeetings().add(meeting1);
+		
+		
+		session.save(emp1);
+		session.save(emp2);
+		
 		tx.commit();
 		session.close();
 		
