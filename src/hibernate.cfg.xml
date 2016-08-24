@@ -12,8 +12,9 @@
    <property name="hibernate.connection.username">root</property>
    <property name="hibernate.connection.password">awi421</property>
    <property name="show_sql">true</property>
-   <property name="hbm2ddl.auto">update</property>
+   <property name="hbm2ddl.auto">create</property>
    <property name="hibernate.connection.autocommit">true</property>
-   <mapping class="Day4.Customer"/>
+   <mapping class="Day5.CarParlour"/>
+   <mapping class="Day5.Car"/>
 </session-factory>
 </hibernate-configuration>
