@@ -11,10 +11,15 @@
    <property name="hibernate.connection.url">jdbc:mysql://localhost/mydb</property>
    <property name="hibernate.connection.username">root</property>
    <property name="hibernate.connection.password">awi421</property>
+   
+   <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+   <property name="hibernate.cache.use_second_level_cache">true</property>
+   <property name="hibernate.cache.use_query_cache">true</property>
+   <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+   
    <property name="show_sql">true</property>
-   <property name="hbm2ddl.auto">create</property>
+   <property name="hbm2ddl.auto">update</property>
    <property name="hibernate.connection.autocommit">true</property>
-   <mapping class="Day5.Meeting"/>
-   <mapping class="Day5.Employee"/>
+   <mapping class="Day6.GoodEmployee"/>
 </session-factory>
 </hibernate-configuration>

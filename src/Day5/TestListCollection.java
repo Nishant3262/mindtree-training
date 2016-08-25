@@ -61,7 +61,7 @@ public class TestListCollection {
 		Meeting meeting2 = new Meeting("Discussion on Spring");
 		
 		Employee emp1 = new Employee("Awantik","Das");
-		Employee emp2 = new Employee("Awi","D");
+		Employee emp2 = new Employee("Awantik","Das");
 		
 		emp1.getMeetings().add(meeting1);
 		emp1.getMeetings().add(meeting2);

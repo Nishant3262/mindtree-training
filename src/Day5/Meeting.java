@@ -77,6 +77,9 @@ public class Meeting {
 
 	@Override
 	public boolean equals(Object obj) {
+		
+		System.out.println("Chking this");
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
